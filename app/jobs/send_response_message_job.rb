@@ -1,7 +1,7 @@
 class SendResponseMessageJob < ApplicationJob
   queue_as :default
 
-  def perform(channel, thread_ts, reference_messages)
-    SendResponseMessage.new(channel: channel, thread_ts: thread_ts, reference_messages: reference_messages).perform
+  def perform(channel, thread_ts, title, reference_messages)
+    SendResponseMessage.new(channel, thread_ts, title, reference_messages).perform
   end
 end

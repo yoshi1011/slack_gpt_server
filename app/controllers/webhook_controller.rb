@@ -6,7 +6,9 @@ class WebhookController < ApplicationController
     unless webhook_params[:type] == "url_verification"
       reference_messages = SlackMessage.new(channel: event_params[:channel], thread_ts: event_params[:thread_ts]).exclude_messages
 
-      SendResponseMessageJob.perform_later(event_params[:channel], event_params[:thread_ts], reference_messages)
+      title = event_params[:text].gsub(/<@[\w]+>\s*/, "")
+
+      SendResponseMessageJob.perform_later(event_params[:channel], event_params[:thread_ts], title, reference_messages)
     end
 
     render json: { challenge: webhook_params[:challenge] }
