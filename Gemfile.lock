@@ -269,7 +269,7 @@ GEM
       faraday (>= 1)
       faraday-multipart (>= 1)
     ruby-progressbar (1.13.0)
-    rubyzip (2.3.2)
+    rubyzip (2.4.1)
     securerandom (0.4.0)
     slack-ruby-client (2.4.0)
       faraday (>= 2.0)
